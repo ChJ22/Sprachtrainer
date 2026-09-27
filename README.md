@@ -6,9 +6,9 @@ Kostenlose Web-App zum Üben von Polnisch und Deutsch: [Trainer öffnen](https:/
 
 - **300 polnisch-deutsche Wörter** in `pl.js`.
 - **120 Beispielsätze** in `sentences.js`: je 20 für Einkaufen, Im Café, Unterwegs, Im Hotel, Familie & Alltag und Gesundheit. Bei Sätzen lässt sich eine Situation oder „Alle Situationen“ auswählen.
-- Ablauf: zuerst **Sprache**, dann **Wörter oder Sätze**, danach Übungsrichtung und Start. Der Bereich **Grammatik** ist vorbereitet und zeigt derzeit „Kommt bald“.
+- Ablauf: zuerst **Sprache**, dann **Wörter oder Sätze**, danach Übungsrichtung und Start. **Grammatik** bietet 30 Lückenaufgaben: je zehn zu Verbformen, Fällen und Adjektivformen. Hier wählt man ein Thema und erhält nach jeder Antwort eine kurze Erklärung samt Beispielsatz.
 - Das Quiz zeigt vier gemischte Antwortmöglichkeiten und zählt richtige Antworten. Falsch beantwortete Einträge kommen nach einigen Aufgaben erneut. Nach dem Ende der Liste beginnt eine neue Runde.
-- Separate Buttons zum Anhören auf **Deutsch** und **Polnisch**. Die Aussprache startet nur nach einem Klick. Vor dem Beantworten wird nur die Sprache der sichtbaren Frage zum Anhören angeboten; nach der Antwort sind beide Buttons verfügbar.
+- Separate Buttons zum Anhören auf **Deutsch** und **Polnisch**. Die Aussprache startet nur nach einem Klick. Bei Wörtern und Sätzen ist vor dem Beantworten nur die Sprache der sichtbaren Frage hörbar; nach der Antwort sind beide Buttons verfügbar. Bei Grammatikaufgaben werden beide Buttons erst nach der Antwort für den vollständigen Beispielsatz angezeigt.
 - Die Sprachausgabe verwendet die Stimmen des jeweiligen Geräts und Browsers. Die Aussprache kann daher unterschiedlich klingen. Ein dauerhaft gespeicherter Lernstand ist noch nicht eingebaut; die Zählung beginnt beim Start einer neuen Übung wieder bei null.
 
 ## Dateien
@@ -20,6 +20,7 @@ Kostenlose Web-App zum Üben von Polnisch und Deutsch: [Trainer öffnen](https:/
 | `languages.js` | Verfügbare Sprachen |
 | `pl.js` | Polnische Wörter und deutsche Übersetzungen |
 | `sentences.js` | Polnische und deutsche Sätze mit Situationskategorien |
+| `grammar.js` | Grammatikaufgaben mit Antworten, Erklärungen und Beispielsätzen |
 | `README.md` | Projektbeschreibung |
 
 ## Weitere Inhalte ergänzen
@@ -34,4 +35,4 @@ Die Dateien liegen im Hauptverzeichnis des öffentlichen Repositorys `ChJ22/Spra
 
 ## Als Nächstes
 
-Grammatikübungen ergänzen, den Wortschatz weiter ausbauen und die polnische Aussprache problematischer Wörter für alle Nutzer verbessern.
+Grammatikübungen ausbauen, den Wortschatz erweitern und die polnische Aussprache problematischer Wörter für alle Nutzer verbessern.
