@@ -25,6 +25,7 @@ function show(){if(mode==='grammar'){showGrammar();return}audioButtons.hidden=fa
 $('next').onclick=show;
 
 function showGrammar(){
+ targetButton.textContent='🔊 '+languages.find(l=>l.id===lang).name.split(' ')[0]+' anhören';
  if('speechSynthesis' in window)speechSynthesis.cancel();
  audioButtons.hidden=true;
  if(!queue.length){if(reviewOnly){finishSession();return}queue=shuffle(words)}
