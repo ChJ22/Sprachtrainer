@@ -1,51 +1,41 @@
-# Sprachtrainer
+# Sprachtrainer – freie Sprachpaare
 
-Kostenlose Web-App zum Üben von Polnisch, Englisch, Spanisch, Italienisch oder Französisch in beiden Richtungen mit Deutsch: [Trainer öffnen](https://chj22.github.io/Sprachtrainer/).
+Stand: 2. Oktober 2026. Die Menü- und Basissprache kann Deutsch, Englisch, Französisch, Spanisch, Italienisch oder Polnisch sein. Die Lernsprache wird unabhängig davon gewählt. Eine Sprache kann nicht mit sich selbst kombiniert werden: Es gibt 30 Sprachpaare, jeweils mit beiden Übungsrichtungen.
 
-## Aktueller Stand
+## Umfang
 
-- Je **300 Wörter** für Polnisch (`pl.js`), Englisch (`en.js`), Spanisch (`es.js`), Italienisch (`it.js`) und Französisch (`fr.js`) mit deutscher Übersetzung.
-- Je **120 Beispielsätze** für Polnisch (`sentences.js`), Englisch (`en-sentences.js`), Spanisch (`es-sentences.js`), Italienisch (`it-sentences.js`) und Französisch (`fr-sentences.js`): je 20 für Einkaufen, Im Café, Unterwegs, Im Hotel, Familie & Alltag und Gesundheit. Bei Sätzen lässt sich eine Situation oder „Alle Situationen“ auswählen.
-- Ablauf: zuerst **Sprache**, dann **Wörter oder Sätze**, danach Übungsrichtung und Start. **Grammatik** bietet je Sprache 60 Lückenaufgaben. Polnisch behandelt Verbformen, Fälle und Adjektivformen; Englisch behandelt Verbformen, Zeitformen sowie Artikel und Präpositionen; Spanisch behandelt Verbformen, Vergangenheit sowie Artikel und Präpositionen; Italienisch behandelt Verbformen, das passato prossimo sowie Artikel und Präpositionen; Französisch behandelt Verbformen, das passé composé sowie Artikel und Präpositionen. Zusätzlich gibt es je Sprachpaar **60 deutsche Grammatikaufgaben** für die Rückrichtung (20 Verbformen, 20 Artikel und Pronomen, 20 Präpositionen und Wortformen). Dabei steht über dem deutschen Lückensatz der vollständige Satz in der gewählten Fremdsprache. Die Themenauswahl passt sich der Richtung an. Hier wählt man ein Thema und erhält nach jeder Antwort eine kurze Erklärung samt Beispielsatz.
-- Das Quiz zeigt vier gemischte Antwortmöglichkeiten und zählt richtige Antworten. Falsch beantwortete Einträge kommen nach einigen Aufgaben erneut. Nach dem Ende der Liste beginnt eine neue Runde. Über **„Runde beenden · Fehler ansehen“** öffnet sich eine Liste aller in dieser Runde falsch beantworteten Aufgaben mit der richtigen Lösung und der gewählten falschen Antwort. **„Fehler wiederholen“** startet diese Aufgaben erneut; **„Neue Runde“** setzt die Auswertung zurück.
-- Separate Buttons zum Anhören auf **Deutsch** und der gewählten Sprache (**Polnisch**, **Englisch**, **Spanisch**, **Italienisch** oder **Französisch**). Die Aussprache startet nur nach einem Klick. Bei Wörtern und Sätzen ist vor dem Beantworten nur die Sprache der sichtbaren Frage hörbar; nach der Antwort sind beide Buttons verfügbar. Bei Grammatikaufgaben werden beide Buttons erst nach der Antwort für den vollständigen Beispielsatz angezeigt.
-- Die Sprachausgabe verwendet die Stimmen des jeweiligen Geräts und Browsers. Die Aussprache kann daher unterschiedlich klingen. Ein dauerhaft gespeicherter Lernstand ist noch nicht eingebaut; die Zählung beginnt beim Start einer neuen Übung wieder bei null.
+- 300 Wörter und 120 Sätze pro Sprachpaar. Die vorhandenen Sprachdateien werden anhand der gemeinsamen deutschen Einträge verbunden. Dadurch bleiben die bereits gepflegten Übersetzungen erhalten.
+- Sätze: 20 je Situation für Einkaufen, Im Café, Unterwegs, Im Hotel, Familie & Alltag und Gesundheit.
+- 60 Grammatikaufgaben in der Sprache, auf die die gewählte Richtung zeigt. Englisch → Polnisch übt polnische Grammatik; Polnisch → Englisch übt englische Grammatik. Deutsch ist ebenfalls als Lernsprache verfügbar und hat 60 eigene Grammatikaufgaben.
+- Menü, Kategorien, Buttons, Rückmeldungen und Fehlerauswertung in allen sechs Sprachen.
+- Zwei Sprachbuttons bei Wörtern und Sätzen; vor der Antwort ist nur die Frage hörbar, danach beide Sprachen. Keine automatische Sprachausgabe.
+- Grammatik: vorhandene vollständige Beispielsätze werden in beiden Sprachen angezeigt, wenn die entsprechende Übersetzung bereits in den Datensätzen vorhanden ist. Fehlt eine Übersetzung, wird ausschließlich der vorhandene vollständige Satz gezeigt und vorgelesen. Die Grammatikaufgabe selbst bleibt vollständig verfügbar. Die ausführlichen Grammatik-Erklärungen bleiben vorerst deutsch.
+- Fehlerliste und gezielte Wiederholung innerhalb einer Runde.
 
-## Dateien
+## Sprache wechseln
 
-| Datei | Aufgabe |
-| --- | --- |
-| `index.html` | Darstellung und Auswahlbildschirme |
-| `app.js` | Navigation, Quiz und Sprachbuttons |
-| `languages.js` | Verfügbare Sprachen |
-| `pl.js`, `en.js`, `es.js`, `it.js`, `fr.js` | Wörter mit deutscher Übersetzung |
-| `sentences.js`, `en-sentences.js`, `es-sentences.js`, `it-sentences.js`, `fr-sentences.js` | Sätze mit Situationskategorien |
-| `grammar.js`, `en-grammar.js`, `es-grammar.js`, `it-grammar.js`, `fr-grammar.js` | Grammatikaufgaben mit Antworten, Erklärungen und Beispielsätzen |
-| `german-grammar.js` | Deutsche Grammatikaufgaben mit Beispielsätzen in allen fünf Fremdsprachen |
-| `README.md` | Projektbeschreibung |
+Die Menü- und Basissprache wird lokal auf dem Gerät gespeichert, sofern der Browser Speicherung erlaubt. Die Sprache der Tonwiedergabe richtet sich nach dem jeweiligen Inhalt. Ein Wechsel der Basis beendet die aktuelle Runde und führt zurück zur Sprachauswahl; Punktestand und Fehlerliste der alten Runde werden zurückgesetzt.
 
-## Weitere Inhalte ergänzen
+## Dieses Update hochladen
 
-Ein Wort in `pl.js` hat die Form `['Haus','dom','Wohnen']`: deutsche Bezeichnung, polnische Übersetzung, Kategorie. Ein Satz in `sentences.js` folgt demselben Muster, zum Beispiel `['Ich brauche Hilfe.','Potrzebuję pomocy.','Gesundheit']`. Neue Situationen erscheinen nach dem Laden der Satzdatei automatisch in der Auswahl. Möglichst keine identischen Quizantworten innerhalb einer Sprache mehrfach eintragen, damit jede Aufgabe eindeutig bleibt.
+ZIP entpacken und die fünf Dateien im Hauptverzeichnis des bestehenden Repositorys `ChJ22/Sprachtrainer` hochladen:
 
-Für weitere Sprachen werden eigene Vokabel-, Satz- und Grammatikdateien sowie ein Eintrag mit Dateinamen und Sprachkennung in `languages.js` benötigt.
+- `index.html`
+- `app.js`
+- `interface.js`
+- `german-grammar.js`
+- `README.md`
 
-## Auf GitHub Pages veröffentlichen
+Anschließend **Commit changes** wählen. Gleichnamige Dateien werden ersetzt. Keine Dateien löschen oder manuell bearbeiten. Alle vorhandenen Wort-, Satz- und Grammatikdateien sowie `languages.js` werden weiterhin benötigt. GitHub Pages bleibt auf `main` und `/(root)` eingestellt. Nach der Veröffentlichung den Trainer neu öffnen.
 
-Die Dateien liegen im Hauptverzeichnis des öffentlichen Repositorys `ChJ22/Sprachtrainer`. Unter **Settings → Pages** ist **Deploy from a branch → main → /(root)** eingerichtet. Für Änderungen gleichnamige Dateien im Hauptverzeichnis hochladen und **Commit changes** wählen. Das kann einige Minuten dauern; bei einer alten Ansicht die Trainerseite neu öffnen.
+## Beispiele
 
-## Als Nächstes
+- English als Basis, Polski als Lernsprache: English → Polish oder Polish → English.
+- Français als Basis, Deutsch als Lernsprache: Français → Allemand oder Allemand → Français.
+- Deutsch als Basis, Italiano als Lernsprache: Deutsch → Italienisch oder Italienisch → Deutsch.
 
-Grammatikübungen ausbauen, den Wortschatz erweitern und die polnische Aussprache problematischer Wörter für alle Nutzer verbessern.
+## Prüfung und nächster Schritt
 
-## Update vom 2. Oktober 2026
+JavaScript-Funktionstests prüfen alle 30 Sprachpaare, alle drei Übungsarten und beide Richtungen, die Zuordnung Englisch–Polnisch, Sprachkennungen für die Tonwiedergabe, Deutsch als Lernsprache, Fehlerwiederholung und Rücksetzung beim Basiswechsel. Dies ersetzt keinen Hörtest auf dem iPhone; Stimmen und Aussprache hängen weiterhin vom Gerät ab.
 
-Die Oberfläche ist in sechs Sprachen auswählbar. Wörter und Sätze sind in beiden Richtungen nutzbar (je 300 Wörter und 120 Sätze). Wähle die gewünschte Richtung vor dem Start. Deutsche Grammatik wird als eigenes Aufgabenangebot verwendet; fremdsprachliche Lücken werden nicht einfach umgedreht. In der Rückrichtung kann der fremdsprachliche Beispielsatz vor der Antwort angehört werden, die vollständige deutsche Lösung erst danach.
-
-Das aktuelle Paket enthält fünf Dateien: `app.js`, `index.html`, `interface.js`, `german-grammar.js`, `README.md`. Alle fünf Dateien ins Hauptverzeichnis des bestehenden Repositorys hochladen und bestätigen. Gleichnamige Dateien werden ersetzt; vorhandene Wörter, Sätze und Fremdsprachen-Grammatikdateien bleiben erforderlich. Keine Dateien löschen. Die separate Konten-/Datenbank-Testversion ist nicht Teil dieses Updates.
-
-## Mehrsprachige Oberfläche
-
-Menüsprache oben auswählen: Deutsch, Englisch, Französisch, Spanisch, Italienisch oder Polnisch. Die Menüsprache wird lokal auf dem Gerät gespeichert, sofern Browser-Speicherung erlaubt ist. Sie ist unabhängig von der gewählten Übungssprache und Richtung. Ein Wechsel während einer Runde bewahrt Frage, Antworten, Punktestand und Fehlerliste. Menüs, Kategorien, Buttons und Auswertung werden übersetzt. Vokabeln, Sätze und Grammatikaufgaben behalten ihre jeweiligen Lernsprachen; die vorhandenen ausführlichen Grammatik-Erklärungen bleiben vorerst deutsch.
-
-Dieses Paket enthält fünf Dateien: `index.html`, `app.js`, `interface.js`, `german-grammar.js`, `README.md`. Alle fünf im Hauptverzeichnis hochladen. Die Wort-, Satz- und Grammatikdateien sowie `languages.js` bleiben erforderlich. Es sind keine Datenbank-Einstellungen enthalten.
+Ein Nutzerkonto und die dauerhafte Speicherung des Lernstands sind in diesem Paket noch nicht enthalten. Dafür wird separat ein Supabase-Testprojekt eingerichtet; die vorbereitete Konten-Testversion muss vor der Verbindung auf diesen aktuellen Stand gebracht werden.
