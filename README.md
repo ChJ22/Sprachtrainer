@@ -40,6 +40,12 @@ Grammatikübungen ausbauen, den Wortschatz erweitern und die polnische Aussprach
 
 ## Update vom 2. Oktober 2026
 
-Die Oberfläche bleibt deutschsprachig. Wörter und Sätze sind in beiden Richtungen nutzbar (je 300 Wörter und 120 Sätze). Wähle die gewünschte Richtung vor dem Start. Deutsche Grammatik wird als eigenes Aufgabenangebot verwendet; fremdsprachliche Lücken werden nicht einfach umgedreht. In der Rückrichtung kann der fremdsprachliche Beispielsatz vor der Antwort angehört werden, die vollständige deutsche Lösung erst danach.
+Die Oberfläche ist in sechs Sprachen auswählbar. Wörter und Sätze sind in beiden Richtungen nutzbar (je 300 Wörter und 120 Sätze). Wähle die gewünschte Richtung vor dem Start. Deutsche Grammatik wird als eigenes Aufgabenangebot verwendet; fremdsprachliche Lücken werden nicht einfach umgedreht. In der Rückrichtung kann der fremdsprachliche Beispielsatz vor der Antwort angehört werden, die vollständige deutsche Lösung erst danach.
 
-Dieses Update enthält vier Dateien: `app.js`, `index.html`, `german-grammar.js`, `README.md`. Alle vier Dateien ins Hauptverzeichnis des bestehenden Repositorys hochladen und bestätigen. Gleichnamige Dateien werden ersetzt; vorhandene Wörter, Sätze und Fremdsprachen-Grammatikdateien bleiben erforderlich. Keine Dateien löschen. Die separate Konten-/Datenbank-Testversion ist nicht Teil dieses Updates.
+Das aktuelle Paket enthält fünf Dateien: `app.js`, `index.html`, `interface.js`, `german-grammar.js`, `README.md`. Alle fünf Dateien ins Hauptverzeichnis des bestehenden Repositorys hochladen und bestätigen. Gleichnamige Dateien werden ersetzt; vorhandene Wörter, Sätze und Fremdsprachen-Grammatikdateien bleiben erforderlich. Keine Dateien löschen. Die separate Konten-/Datenbank-Testversion ist nicht Teil dieses Updates.
+
+## Mehrsprachige Oberfläche
+
+Menüsprache oben auswählen: Deutsch, Englisch, Französisch, Spanisch, Italienisch oder Polnisch. Die Menüsprache wird lokal auf dem Gerät gespeichert, sofern Browser-Speicherung erlaubt ist. Sie ist unabhängig von der gewählten Übungssprache und Richtung. Ein Wechsel während einer Runde bewahrt Frage, Antworten, Punktestand und Fehlerliste. Menüs, Kategorien, Buttons und Auswertung werden übersetzt. Vokabeln, Sätze und Grammatikaufgaben behalten ihre jeweiligen Lernsprachen; die vorhandenen ausführlichen Grammatik-Erklärungen bleiben vorerst deutsch.
+
+Dieses Paket enthält fünf Dateien: `index.html`, `app.js`, `interface.js`, `german-grammar.js`, `README.md`. Alle fünf im Hauptverzeichnis hochladen. Die Wort-, Satz- und Grammatikdateien sowie `languages.js` bleiben erforderlich. Es sind keine Datenbank-Einstellungen enthalten.
