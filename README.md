@@ -1,12 +1,12 @@
 # Sprachtrainer
 
-Kostenlose Web-App zum Üben von Polnisch, Englisch, Spanisch, Italienisch oder Französisch mit deutscher Ausgangssprache: [Trainer öffnen](https://chj22.github.io/Sprachtrainer/).
+Kostenlose Web-App zum Üben von Polnisch, Englisch, Spanisch, Italienisch oder Französisch in beiden Richtungen mit Deutsch: [Trainer öffnen](https://chj22.github.io/Sprachtrainer/).
 
 ## Aktueller Stand
 
 - Je **300 Wörter** für Polnisch (`pl.js`), Englisch (`en.js`), Spanisch (`es.js`), Italienisch (`it.js`) und Französisch (`fr.js`) mit deutscher Übersetzung.
 - Je **120 Beispielsätze** für Polnisch (`sentences.js`), Englisch (`en-sentences.js`), Spanisch (`es-sentences.js`), Italienisch (`it-sentences.js`) und Französisch (`fr-sentences.js`): je 20 für Einkaufen, Im Café, Unterwegs, Im Hotel, Familie & Alltag und Gesundheit. Bei Sätzen lässt sich eine Situation oder „Alle Situationen“ auswählen.
-- Ablauf: zuerst **Sprache**, dann **Wörter oder Sätze**, danach Übungsrichtung und Start. **Grammatik** bietet je Sprache 60 Lückenaufgaben. Polnisch behandelt Verbformen, Fälle und Adjektivformen; Englisch behandelt Verbformen, Zeitformen sowie Artikel und Präpositionen; Spanisch behandelt Verbformen, Vergangenheit sowie Artikel und Präpositionen; Italienisch behandelt Verbformen, das passato prossimo sowie Artikel und Präpositionen; Französisch behandelt Verbformen, das passé composé sowie Artikel und Präpositionen. Hier wählt man ein Thema und erhält nach jeder Antwort eine kurze Erklärung samt Beispielsatz.
+- Ablauf: zuerst **Sprache**, dann **Wörter oder Sätze**, danach Übungsrichtung und Start. **Grammatik** bietet je Sprache 60 Lückenaufgaben. Polnisch behandelt Verbformen, Fälle und Adjektivformen; Englisch behandelt Verbformen, Zeitformen sowie Artikel und Präpositionen; Spanisch behandelt Verbformen, Vergangenheit sowie Artikel und Präpositionen; Italienisch behandelt Verbformen, das passato prossimo sowie Artikel und Präpositionen; Französisch behandelt Verbformen, das passé composé sowie Artikel und Präpositionen. Zusätzlich gibt es je Sprachpaar **60 deutsche Grammatikaufgaben** für die Rückrichtung (20 Verbformen, 20 Artikel und Pronomen, 20 Präpositionen und Wortformen). Dabei steht über dem deutschen Lückensatz der vollständige Satz in der gewählten Fremdsprache. Die Themenauswahl passt sich der Richtung an. Hier wählt man ein Thema und erhält nach jeder Antwort eine kurze Erklärung samt Beispielsatz.
 - Das Quiz zeigt vier gemischte Antwortmöglichkeiten und zählt richtige Antworten. Falsch beantwortete Einträge kommen nach einigen Aufgaben erneut. Nach dem Ende der Liste beginnt eine neue Runde. Über **„Runde beenden · Fehler ansehen“** öffnet sich eine Liste aller in dieser Runde falsch beantworteten Aufgaben mit der richtigen Lösung und der gewählten falschen Antwort. **„Fehler wiederholen“** startet diese Aufgaben erneut; **„Neue Runde“** setzt die Auswertung zurück.
 - Separate Buttons zum Anhören auf **Deutsch** und der gewählten Sprache (**Polnisch**, **Englisch**, **Spanisch**, **Italienisch** oder **Französisch**). Die Aussprache startet nur nach einem Klick. Bei Wörtern und Sätzen ist vor dem Beantworten nur die Sprache der sichtbaren Frage hörbar; nach der Antwort sind beide Buttons verfügbar. Bei Grammatikaufgaben werden beide Buttons erst nach der Antwort für den vollständigen Beispielsatz angezeigt.
 - Die Sprachausgabe verwendet die Stimmen des jeweiligen Geräts und Browsers. Die Aussprache kann daher unterschiedlich klingen. Ein dauerhaft gespeicherter Lernstand ist noch nicht eingebaut; die Zählung beginnt beim Start einer neuen Übung wieder bei null.
@@ -21,6 +21,7 @@ Kostenlose Web-App zum Üben von Polnisch, Englisch, Spanisch, Italienisch oder 
 | `pl.js`, `en.js`, `es.js`, `it.js`, `fr.js` | Wörter mit deutscher Übersetzung |
 | `sentences.js`, `en-sentences.js`, `es-sentences.js`, `it-sentences.js`, `fr-sentences.js` | Sätze mit Situationskategorien |
 | `grammar.js`, `en-grammar.js`, `es-grammar.js`, `it-grammar.js`, `fr-grammar.js` | Grammatikaufgaben mit Antworten, Erklärungen und Beispielsätzen |
+| `german-grammar.js` | Deutsche Grammatikaufgaben mit Beispielsätzen in allen fünf Fremdsprachen |
 | `README.md` | Projektbeschreibung |
 
 ## Weitere Inhalte ergänzen
@@ -36,3 +37,9 @@ Die Dateien liegen im Hauptverzeichnis des öffentlichen Repositorys `ChJ22/Spra
 ## Als Nächstes
 
 Grammatikübungen ausbauen, den Wortschatz erweitern und die polnische Aussprache problematischer Wörter für alle Nutzer verbessern.
+
+## Update vom 2. Oktober 2026
+
+Die Oberfläche bleibt deutschsprachig. Wörter und Sätze sind in beiden Richtungen nutzbar (je 300 Wörter und 120 Sätze). Wähle die gewünschte Richtung vor dem Start. Deutsche Grammatik wird als eigenes Aufgabenangebot verwendet; fremdsprachliche Lücken werden nicht einfach umgedreht. In der Rückrichtung kann der fremdsprachliche Beispielsatz vor der Antwort angehört werden, die vollständige deutsche Lösung erst danach.
+
+Dieses Update enthält vier Dateien: `app.js`, `index.html`, `german-grammar.js`, `README.md`. Alle vier Dateien ins Hauptverzeichnis des bestehenden Repositorys hochladen und bestätigen. Gleichnamige Dateien werden ersetzt; vorhandene Wörter, Sätze und Fremdsprachen-Grammatikdateien bleiben erforderlich. Keine Dateien löschen. Die separate Konten-/Datenbank-Testversion ist nicht Teil dieses Updates.
