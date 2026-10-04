@@ -1,41 +1,28 @@
-# Sprachtrainer – freie Sprachpaare
+# Sprachtrainer
 
-Stand: 2. Oktober 2026. Die Menü- und Basissprache kann Deutsch, Englisch, Französisch, Spanisch, Italienisch oder Polnisch sein. Die Lernsprache wird unabhängig davon gewählt. Eine Sprache kann nicht mit sich selbst kombiniert werden: Es gibt 30 Sprachpaare, jeweils mit beiden Übungsrichtungen.
+Hauptversion: https://chj22.github.io/Sprachtrainer/
+Testumgebung: https://chj22.github.io/Sprachtrainer-Test/
 
-## Umfang
+## Angebot
+Sechs Menü- und Basissprachen: Deutsch, Englisch, Französisch, Spanisch, Italienisch und Polnisch. Jede kann mit einer anderen kombiniert werden. Je Sprachpaar 300 Wörter, 120 Sätze in sechs Situationen und 60 Grammatikaufgaben je Lernrichtung. Vorlesen nur nach Antippen. Aufgaben und Antworten sind größer dargestellt; Einstellungen und Konto sind kompakter.
 
-- 300 Wörter und 120 Sätze pro Sprachpaar. Die vorhandenen Sprachdateien werden anhand der gemeinsamen deutschen Einträge verbunden. Dadurch bleiben die bereits gepflegten Übersetzungen erhalten.
-- Sätze: 20 je Situation für Einkaufen, Im Café, Unterwegs, Im Hotel, Familie & Alltag und Gesundheit.
-- 60 Grammatikaufgaben in der Sprache, auf die die gewählte Richtung zeigt. Englisch → Polnisch übt polnische Grammatik; Polnisch → Englisch übt englische Grammatik. Deutsch ist ebenfalls als Lernsprache verfügbar und hat 60 eigene Grammatikaufgaben.
-- Menü, Kategorien, Buttons, Rückmeldungen und Fehlerauswertung in allen sechs Sprachen.
-- Zwei Sprachbuttons bei Wörtern und Sätzen; vor der Antwort ist nur die Frage hörbar, danach beide Sprachen. Keine automatische Sprachausgabe.
-- Grammatik: vorhandene vollständige Beispielsätze werden in beiden Sprachen angezeigt, wenn die entsprechende Übersetzung bereits in den Datensätzen vorhanden ist. Fehlt eine Übersetzung, wird ausschließlich der vorhandene vollständige Satz gezeigt und vorgelesen. Die Grammatikaufgabe selbst bleibt vollständig verfügbar. Die ausführlichen Grammatik-Erklärungen bleiben vorerst deutsch.
-- Fehlerliste und gezielte Wiederholung innerhalb einer Runde.
+## Benutzerkonten und Lernstand
+Mit E-Mail und Passwort registrieren, Bestätigungslink öffnen und anmelden. Das Gasttraining bleibt verfügbar; Gastantworten werden nicht nachträglich dem Konto zugeordnet. Angemeldete Antworten werden mit Benutzer-ID, Basissprache, Lernsprache, Übungsart, Richtung und Datum gespeichert.
 
-## Sprache wechseln
+Lernstand und offene Fehler zeigen nur das ausgewählte Sprachpaar. Gespeicherte Fehler lassen sich in der Übungsauswahl wiederholen. Eine richtige Wiederholung löst den betreffenden offenen Fehler. Historische Antworten bleiben erhalten. Alle Menü- und Kontotexte folgen der gewählten Menüsprache.
 
-Die Menü- und Basissprache wird lokal auf dem Gerät gespeichert, sofern der Browser Speicherung erlaubt. Die Sprache der Tonwiedergabe richtet sich nach dem jeweiligen Inhalt. Ein Wechsel der Basis beendet die aktuelle Runde und führt zurück zur Sprachauswahl; Punktestand und Fehlerliste der alten Runde werden zurückgesetzt.
+Nicht übertragene Antworten bleiben pro Benutzer auf dem Gerät vorgemerkt. Synchronisieren überträgt sie erneut. Eine laufende Runde wird beim Kontowechsel zurückgesetzt; ein exaktes Fortsetzen einer Runde ist nicht enthalten. Grammatik-Erklärungen sind weiterhin deutsch; einzelne Übersetzungen von Grammatikbeispielen fehlen in manchen Sprachpaaren.
 
-## Dieses Update hochladen
+## Übernahme in den Haupttrainer
+1. In Supabase unter Authentication → URL Configuration die Site URL auf https://chj22.github.io/Sprachtrainer/ setzen und speichern.
+2. Unter Redirect URLs zusätzlich genau https://chj22.github.io/Sprachtrainer/ hinzufügen. Die vorhandene Testadresse behalten.
+3. Die Dateien dieses Ordners direkt ins Stammverzeichnis des GitHub-Repository Sprachtrainer hochladen und committen. Keine Dateien löschen oder manuell bearbeiten.
+4. Nach Veröffentlichung den Haupttrainer neu laden, anmelden und den vorhandenen Lernstand prüfen. Zwei getrennte Konten prüfen: Nach einem Kontowechsel dürfen nur die jeweiligen eigenen Antworten erscheinen.
 
-ZIP entpacken und die fünf Dateien im Hauptverzeichnis des bestehenden Repositorys `ChJ22/Sprachtrainer` hochladen:
+Die vorhandene Datenbank, Benutzerkonten, Ergebnisse und Zugriffsschutzregeln werden weiterverwendet. Kein SQL erneut ausführen, keine Tabelle neu anlegen oder umbenennen. Der technische Tabellenname trainer_attempts_test und der bisherige lokale Speicher-Schlüssel bleiben unverändert, damit bestehende Ergebnisse und noch nicht übertragene Antworten erhalten bleiben. config.js enthält nur Projekt-URL und öffentlichen Publishable Key.
 
-- `index.html`
-- `app.js`
-- `interface.js`
-- `german-grammar.js`
-- `README.md`
+## Testumgebung
+Sprachtrainer-Test bleibt als eigene Website bestehen. Solange beide Versionen denselben Supabase-Zugang und dieselbe Tabelle verwenden, greifen sie auf dieselben Benutzerkonten und Lernstände zu. Vor Änderungen an Datenstruktur oder Speicherung die Testdaten vom Hauptbetrieb trennen.
 
-Anschließend **Commit changes** wählen. Gleichnamige Dateien werden ersetzt. Keine Dateien löschen oder manuell bearbeiten. Alle vorhandenen Wort-, Satz- und Grammatikdateien sowie `languages.js` werden weiterhin benötigt. GitHub Pages bleibt auf `main` und `/(root)` eingestellt. Nach der Veröffentlichung den Trainer neu öffnen.
-
-## Beispiele
-
-- English als Basis, Polski als Lernsprache: English → Polish oder Polish → English.
-- Français als Basis, Deutsch als Lernsprache: Français → Allemand oder Allemand → Français.
-- Deutsch als Basis, Italiano als Lernsprache: Deutsch → Italienisch oder Italienisch → Deutsch.
-
-## Prüfung und nächster Schritt
-
-JavaScript-Funktionstests prüfen alle 30 Sprachpaare, alle drei Übungsarten und beide Richtungen, die Zuordnung Englisch–Polnisch, Sprachkennungen für die Tonwiedergabe, Deutsch als Lernsprache, Fehlerwiederholung und Rücksetzung beim Basiswechsel. Dies ersetzt keinen Hörtest auf dem iPhone; Stimmen und Aussprache hängen weiterhin vom Gerät ab.
-
-Ein Nutzerkonto und die dauerhafte Speicherung des Lernstands sind in diesem Paket noch nicht enthalten. Dafür wird separat ein Supabase-Testprojekt eingerichtet; die vorbereitete Konten-Testversion muss vor der Verbindung auf diesen aktuellen Stand gebracht werden.
+## Prüfungen
+Automatisierte Funktionsprüfungen mit simulierter Datenbank: alle 30 Sprachpaare, beide Richtungen, alle drei Übungsarten, gespeicherte Fehler, Offline-Warteschlange, Kontowechsel, Paginierung und sechs Menüsprachen. Speicherung wurde vom Nutzer in der Testseite bestätigt. Der reale Test mit zwei Benutzerkonten ist noch nicht bestätigt. Die neue Hauptadresse muss nach dem Upload geprüft werden.
