@@ -83,7 +83,7 @@ window.TRAINER_I18N={
    "logoutError": "Abmelden nicht möglich. Bitte erneut versuchen.",
    "accountsUnconfigured": "Konten sind noch nicht verbunden. Die Testversion lässt sich als Gast ausprobieren.",
    "accountConfigError": "Konfiguration prüfen: Projekt-URL und öffentlicher Publishable Key erforderlich.",
-   "accountWelcome": "Melde dich an oder lege ein Konto an.",
+   "accountWelcome": "Melde dich an oder lege ein Testkonto an.",
    "accountUnavailable": "Kontoverbindung nicht verfügbar. Du kannst als Gast üben.",
    "noSavedErrors": "Keine offenen gespeicherten Fehler für diese Auswahl.",
    "savedErrorsError": "Gespeicherte Fehler konnten nicht gestartet werden."
@@ -171,7 +171,7 @@ window.TRAINER_I18N={
    "logoutError": "Unable to sign out. Please try again.",
    "accountsUnconfigured": "Accounts are not connected yet. You can try the test version as a guest.",
    "accountConfigError": "Check configuration: project URL and public publishable key are required.",
-   "accountWelcome": "Sign in or create an account.",
+   "accountWelcome": "Sign in or create a test account.",
    "accountUnavailable": "Account connection unavailable. You can practice as a guest.",
    "noSavedErrors": "No unresolved saved mistakes for this selection.",
    "savedErrorsError": "Unable to start practicing saved mistakes."
@@ -259,7 +259,7 @@ window.TRAINER_I18N={
    "logoutError": "Déconnexion impossible. Veuillez réessayer.",
    "accountsUnconfigured": "Les comptes ne sont pas encore connectés. Vous pouvez essayer la version de test en tant qu’invité.",
    "accountConfigError": "Vérifiez la configuration : URL du projet et clé publique « Publishable Key » requises.",
-   "accountWelcome": "Connectez-vous ou créez un compte.",
+   "accountWelcome": "Connectez-vous ou créez un compte de test.",
    "accountUnavailable": "Connexion au compte indisponible. Vous pouvez vous entraîner en tant qu’invité.",
    "noSavedErrors": "Aucune erreur enregistrée à revoir pour cette sélection.",
    "savedErrorsError": "Impossible de lancer la révision des erreurs enregistrées."
@@ -347,7 +347,7 @@ window.TRAINER_I18N={
    "logoutError": "No se pudo cerrar la sesión. Inténtalo de nuevo.",
    "accountsUnconfigured": "Las cuentas aún no están conectadas. Puedes probar la versión de prueba como invitado.",
    "accountConfigError": "Revisa la configuración: se requieren la URL del proyecto y la clave pública «Publishable Key».",
-   "accountWelcome": "Inicia sesión o crea una cuenta.",
+   "accountWelcome": "Inicia sesión o crea una cuenta de prueba.",
    "accountUnavailable": "La conexión de cuentas no está disponible. Puedes practicar como invitado.",
    "noSavedErrors": "No hay errores guardados pendientes para esta selección.",
    "savedErrorsError": "No se pudo iniciar el repaso de errores guardados."
@@ -435,7 +435,7 @@ window.TRAINER_I18N={
    "logoutError": "Impossibile uscire. Riprova.",
    "accountsUnconfigured": "Gli account non sono ancora collegati. Puoi provare la versione di prova come ospite.",
    "accountConfigError": "Controlla la configurazione: servono l’URL del progetto e la chiave pubblica «Publishable Key».",
-   "accountWelcome": "Accedi o crea un account.",
+   "accountWelcome": "Accedi o crea un account di prova.",
    "accountUnavailable": "Connessione agli account non disponibile. Puoi esercitarti come ospite.",
    "noSavedErrors": "Non ci sono errori salvati da ripassare per questa selezione.",
    "savedErrorsError": "Impossibile avviare il ripasso degli errori salvati."
@@ -523,7 +523,7 @@ window.TRAINER_I18N={
    "logoutError": "Nie udało się wylogować. Spróbuj ponownie.",
    "accountsUnconfigured": "Konta nie są jeszcze połączone. Możesz wypróbować wersję testową jako gość.",
    "accountConfigError": "Sprawdź konfigurację: wymagane są adres URL projektu i publiczny klucz „Publishable Key”.",
-   "accountWelcome": "Zaloguj się lub utwórz konto.",
+   "accountWelcome": "Zaloguj się lub utwórz konto testowe.",
    "accountUnavailable": "Połączenie z kontem jest niedostępne. Możesz ćwiczyć jako gość.",
    "noSavedErrors": "Brak zapisanych błędów do powtórzenia dla tego wyboru.",
    "savedErrorsError": "Nie udało się rozpocząć powtórki zapisanych błędów."
@@ -711,3 +711,7 @@ try{const saved=localStorage.getItem('trainer-ui-language');if(window.TRAINER_I1
 function t(key,params={}){let value=window.TRAINER_I18N.texts[uiLanguage][key]??window.TRAINER_I18N.texts.de[key]??key;return value.replace(/\{(\w+)\}/g,(_,name)=>params[name]??'{'+name+'}')}
 function categoryName(category){return window.TRAINER_I18N.categories[uiLanguage][category]??category}
 function languageName(id){return t(id)}
+
+for(const [locale,values] of Object.entries({"de": ["🗣️ Dialoge", "Unterhaltungen mit Antwortauswahl", "Welche Unterhaltung möchtest du üben?", "Die Dialoge konnten nicht geladen werden.", "Dialoge", "Gesprächspartner", "Du", "Schritt {step} von {total}", "Antwortsprache", "Wähle die passende Antwort."], "en": ["🗣️ Dialogues", "Conversations with a choice of replies", "Which conversation would you like to practise?", "The dialogues could not be loaded.", "Dialogues", "Conversation partner", "You", "Step {step} of {total}", "Reply language", "Choose the appropriate reply."], "fr": ["🗣️ Dialogues", "Conversations avec choix de réponses", "Quelle conversation souhaitez-vous pratiquer ?", "Impossible de charger les dialogues.", "Dialogues", "Interlocuteur", "Vous", "Étape {step} sur {total}", "Langue des réponses", "Choisissez la réponse adaptée."], "es": ["🗣️ Diálogos", "Conversaciones con respuestas a elegir", "¿Qué conversación quieres practicar?", "No se pudieron cargar los diálogos.", "Diálogos", "Interlocutor", "Tú", "Paso {step} de {total}", "Idioma de las respuestas", "Elige la respuesta adecuada."], "it": ["🗣️ Dialoghi", "Conversazioni con risposte a scelta", "Quale conversazione vuoi praticare?", "Impossibile caricare i dialoghi.", "Dialoghi", "Interlocutore", "Tu", "Passaggio {step} di {total}", "Lingua delle risposte", "Scegli la risposta adatta."], "pl": ["🗣️ Dialogi", "Rozmowy z wyborem odpowiedzi", "Jaką rozmowę chcesz przećwiczyć?", "Nie udało się wczytać dialogów.", "Dialogi", "Rozmówca", "Ty", "Krok {step} z {total}", "Język odpowiedzi", "Wybierz odpowiednią odpowiedź."]}))Object.assign(window.TRAINER_I18N.texts[locale],Object.fromEntries(["dialogues", "dialoguesDesc", "setupDialogues", "dialogueError", "progressDialogues", "dialoguePartner", "dialogueYou", "dialogueStep", "replyLanguage", "dialogueInstruction"].map((key,i)=>[key,values[i]])));
+
+for(const [locale,text] of Object.entries({"de": "Du möchtest sagen: {reply}", "en": "You want to say: {reply}", "fr": "Vous voulez dire : {reply}", "es": "Quieres decir: {reply}", "it": "Vuoi dire: {reply}", "pl": "Chcesz powiedzieć: {reply}"}))window.TRAINER_I18N.texts[locale].dialogueIntent=text;

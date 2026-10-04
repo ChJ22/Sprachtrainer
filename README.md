@@ -1,28 +1,39 @@
-# Sprachtrainer
+# Sprachtrainer – Dialog-Testversion
 
-Hauptversion: https://chj22.github.io/Sprachtrainer/
-Testumgebung: https://chj22.github.io/Sprachtrainer-Test/
+Separate Testversion für https://chj22.github.io/Sprachtrainer-Test/.
+Der bisherige Trainer bleibt unter https://chj22.github.io/Sprachtrainer/ erreichbar.
 
 ## Angebot
-Sechs Menü- und Basissprachen: Deutsch, Englisch, Französisch, Spanisch, Italienisch und Polnisch. Jede kann mit einer anderen kombiniert werden. Je Sprachpaar 300 Wörter, 120 Sätze in sechs Situationen und 60 Grammatikaufgaben je Lernrichtung. Vorlesen nur nach Antippen. Aufgaben und Antworten sind größer dargestellt; Einstellungen und Konto sind kompakter.
+Sechs Menü- und Basissprachen: Deutsch, Englisch, Französisch, Spanisch, Italienisch, Polnisch. Jede kann mit einer anderen kombiniert werden. Je Sprachpaar 300 Wörter, 120 Sätze in sechs Situationen und 60 Grammatikaufgaben je Lernrichtung. Zusätzlich: 10 Dialoge mit je 6 Schritten (60 Aufgaben) in jeder der sechs Sprachen. Die zwei Vorlesebuttons spielen nur nach Antippen.
 
-## Benutzerkonten und Lernstand
-Mit E-Mail und Passwort registrieren, Bestätigungslink öffnen und anmelden. Das Gasttraining bleibt verfügbar; Gastantworten werden nicht nachträglich dem Konto zugeordnet. Angemeldete Antworten werden mit Benutzer-ID, Basissprache, Lernsprache, Übungsart, Richtung und Datum gespeichert.
+## Benutzerkonten
+Optional mit E-Mail und Passwort registrieren, Bestätigungslink öffnen, anmelden. Als Gast bleibt das Training nutzbar; Gastantworten werden nicht in die Datenbank übernommen. Angemeldete Antworten werden mit Benutzer-ID, Basissprache, Lernsprache, Übungsart, Richtung und Datum gespeichert. Mein gespeicherter Lernstand zeigt ausschließlich beantwortete Aufgaben und offene Fehler für die aktuell ausgewählte Basis- und Lernsprache. Beim Wechsel einer Sprache aktualisiert sich die Übersicht sofort; Ergebnisse anderer Sprachpaare bleiben gespeichert; in der Übungsauswahl lassen sich gespeicherte Fehler wiederholen.
 
-Lernstand und offene Fehler zeigen nur das ausgewählte Sprachpaar. Gespeicherte Fehler lassen sich in der Übungsauswahl wiederholen. Eine richtige Wiederholung löst den betreffenden offenen Fehler. Historische Antworten bleiben erhalten. Alle Menü- und Kontotexte folgen der gewählten Menüsprache.
+Nicht übertragene Antworten bleiben im lokalen Speicher desselben Benutzers vorgemerkt. Synchronisieren versucht erneut zu übertragen. Beim Kontowechsel wird die Runde zurückgesetzt. Das ist noch kein Fortsetzen exakt derselben laufenden Runde.
 
-Nicht übertragene Antworten bleiben pro Benutzer auf dem Gerät vorgemerkt. Synchronisieren überträgt sie erneut. Eine laufende Runde wird beim Kontowechsel zurückgesetzt; ein exaktes Fortsetzen einer Runde ist nicht enthalten. Grammatik-Erklärungen sind weiterhin deutsch; einzelne Übersetzungen von Grammatikbeispielen fehlen in manchen Sprachpaaren.
+Kontoverwaltung, Statusmeldungen, Lernstandsübersicht und Fehlerwiederholung folgen wie die Lernmenüs der gewählten Menüsprache (alle sechs Sprachen). Grammatik-Erklärungen sind weiterhin deutsch, einzelne Übersetzungen für Grammatikbeispiele fehlen in manchen Sprachpaaren.
 
-## Übernahme in den Haupttrainer
-1. In Supabase unter Authentication → URL Configuration die Site URL auf https://chj22.github.io/Sprachtrainer/ setzen und speichern.
-2. Unter Redirect URLs zusätzlich genau https://chj22.github.io/Sprachtrainer/ hinzufügen. Die vorhandene Testadresse behalten.
-3. Die Dateien dieses Ordners direkt ins Stammverzeichnis des GitHub-Repository Sprachtrainer hochladen und committen. Keine Dateien löschen oder manuell bearbeiten.
-4. Nach Veröffentlichung den Haupttrainer neu laden, anmelden und den vorhandenen Lernstand prüfen. Zwei getrennte Konten prüfen: Nach einem Kontowechsel dürfen nur die jeweiligen eigenen Antworten erscheinen.
+## Veröffentlichung
+Alle Dateien aus dem entpackten Ordner direkt im Stammverzeichnis des separaten Repository Sprachtrainer-Test hochladen. GitHub Pages: Deploy from a branch, main, / (root).
+Die Supabase-Tabelle trainer_attempts_test wurde separat über den SQL Editor vorbereitet. config.js enthält nur die öffentliche Projekt-URL und den Publishable Key. Kein Datenbankpasswort oder Secret Key wird benötigt.
 
-Die vorhandene Datenbank, Benutzerkonten, Ergebnisse und Zugriffsschutzregeln werden weiterverwendet. Kein SQL erneut ausführen, keine Tabelle neu anlegen oder umbenennen. Der technische Tabellenname trainer_attempts_test und der bisherige lokale Speicher-Schlüssel bleiben unverändert, damit bestehende Ergebnisse und noch nicht übertragene Antworten erhalten bleiben. config.js enthält nur Projekt-URL und öffentlichen Publishable Key.
+## Prüfstand
+Automatisierte Prüfungen mit simulierter Datenbank prüfen Navigation, Sprachpaare, Speicherung, Wiederholung, Offline-Wiederholung und Kontowechsel. Die tatsächliche Registrierung, Bestätigungs-E-Mail, Speicherung und Trennung zweier Testkonten müssen anschließend auf der veröffentlichten Testseite geprüft werden.
 
-## Testumgebung
-Sprachtrainer-Test bleibt als eigene Website bestehen. Solange beide Versionen denselben Supabase-Zugang und dieselbe Tabelle verwenden, greifen sie auf dieselben Benutzerkonten und Lernstände zu. Vor Änderungen an Datenstruktur oder Speicherung die Testdaten vom Hauptbetrieb trennen.
+## Darstellung
+Aufgaben, Antworten und Lernaktionen sind optisch hervorgehoben. Menü- und Basissprache, Konto, Synchronisierung und Lernstand sind kompakter gestaltet. Bedienelemente behalten mindestens 44 Pixel Höhe; Eingabefelder verwenden mindestens 16 Pixel Schriftgröße.
 
-## Prüfungen
-Automatisierte Funktionsprüfungen mit simulierter Datenbank: alle 30 Sprachpaare, beide Richtungen, alle drei Übungsarten, gespeicherte Fehler, Offline-Warteschlange, Kontowechsel, Paginierung und sechs Menüsprachen. Speicherung wurde vom Nutzer in der Testseite bestätigt. Der reale Test mit zwei Benutzerkonten ist noch nicht bestätigt. Die neue Hauptadresse muss nach dem Upload geprüft werden.
+## Dialoge
+Café, Lebensmitteleinkauf, Hotel, Bahnhof, Kennenlernen, Restaurant, Arzttermin, Kleidung, Besuch bei Freunden und Wohnungssuche. Alle 30 Sprachpaare sind möglich; die Antwortsprache kann auf eine der beiden Sprachen eingestellt werden.
+
+Der Gesprächspartner stellt eine Frage. Ein kurzer Hinweis in der anderen Sprache gibt deine gewünschte Antwort vor, damit auch bei offenen Fragen eindeutig ist, welche der drei Antworten gesucht wird. Der Verlauf zeigt die richtigen Gesprächsbeiträge. Vor dem Antworten lesen die Audiobuttons die Frage, danach die richtige Antwort vor. Keine automatische Tonwiedergabe. Die Gespräche bleiben in ihrer Reihenfolge; falsche Schritte werden erst in der Fehlerwiederholung erneut abgefragt.
+
+Eine ausgewählte Situation umfasst sechs Schritte und endet automatisch mit der Auswertung. Bei „Alle Situationen“ werden alle zehn Gespräche in zufälliger Reihenfolge durchgeführt (60 Schritte). Du kannst jederzeit mit „Runde beenden“ aufhören.
+
+## Zusätzlicher Datenbankschritt
+Vor dem Hochladen die separat gelieferte Datei Sprachtrainer-Dialoge-Datenbank.sql im SQL Editor des bestehenden Supabase-Projekts ausführen. Sie erstellt trainer_dialog_attempts_test mit SELECT/INSERT-Rechten und benutzerspezifischen RLS-Regeln. Die bestehende Tabelle trainer_attempts_test bleibt unverändert. Dialogantworten haben eine eigene Kategorie im Lernstand; gespeicherte Fehler werden nach Benutzer, Sprachpaar und Antwortsprache getrennt.
+
+24 Dateien aus dem Ordner Sprachtrainer-Test direkt in das Repository Sprachtrainer-Test hochladen (nicht den Ordner selbst und nicht die ZIP-Datei). Der Haupttrainer wird durch diesen Upload nicht geändert. Bisherige Übungsantworten werden weiterhin aus der bestehenden Tabelle geladen.
+
+## Neue Prüfungen
+Automatisierte Simulationen prüfen die Dialognavigation für alle 30 Sprachpaare in beiden Antwortsprachen, sechs Schritte in der richtigen Reihenfolge, Gesprächsverlauf, Auswertung, Fehlerwiederholung, separate Speicherung und Kontotrennung. Die bisherigen Funktionsprüfungen bestehen ebenfalls. Die tatsächliche Supabase-Tabelle und die Darstellung auf dem iPhone müssen nach dem SQL-Schritt und dem Upload geprüft werden.
