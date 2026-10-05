@@ -48,8 +48,6 @@ window.TRAINER_I18N={
    "es": "Spanisch",
    "it": "Italienisch",
    "pl": "Polnisch",
-   "testVersion": "🧪 Konten-Testversion",
-   "oldTrainer": "Zum bisherigen Trainer",
    "guestLabel": "Gast · Ergebnisse nur in dieser Runde",
    "signedIn": "Angemeldet: {name}",
    "learner": "Lernender",
@@ -136,8 +134,6 @@ window.TRAINER_I18N={
    "es": "Spanish",
    "it": "Italian",
    "pl": "Polish",
-   "testVersion": "🧪 Account test version",
-   "oldTrainer": "Open the original trainer",
    "guestLabel": "Guest · Results for this round only",
    "signedIn": "Signed in: {name}",
    "learner": "Learner",
@@ -224,8 +220,6 @@ window.TRAINER_I18N={
    "es": "Espagnol",
    "it": "Italien",
    "pl": "Polonais",
-   "testVersion": "🧪 Version de test des comptes",
-   "oldTrainer": "Ouvrir le site d’apprentissage habituel",
    "guestLabel": "Invité · Résultats de cette session uniquement",
    "signedIn": "Connecté : {name}",
    "learner": "Apprenant",
@@ -312,8 +306,6 @@ window.TRAINER_I18N={
    "es": "Español",
    "it": "Italiano",
    "pl": "Polaco",
-   "testVersion": "🧪 Versión de prueba de cuentas",
-   "oldTrainer": "Abrir el sitio de aprendizaje original",
    "guestLabel": "Invitado · Resultados solo de esta sesión",
    "signedIn": "Sesión iniciada: {name}",
    "learner": "Estudiante",
@@ -400,8 +392,6 @@ window.TRAINER_I18N={
    "es": "Spagnolo",
    "it": "Italiano",
    "pl": "Polacco",
-   "testVersion": "🧪 Versione di prova degli account",
-   "oldTrainer": "Apri il sito di apprendimento originale",
    "guestLabel": "Ospite · Risultati solo di questa sessione",
    "signedIn": "Accesso effettuato: {name}",
    "learner": "Studente",
@@ -488,8 +478,6 @@ window.TRAINER_I18N={
    "es": "Hiszpański",
    "it": "Włoski",
    "pl": "Polski",
-   "testVersion": "🧪 Wersja testowa kont",
-   "oldTrainer": "Otwórz dotychczasowy serwis do nauki",
    "guestLabel": "Gość · Wyniki tylko z tej sesji",
    "signedIn": "Zalogowano: {name}",
    "learner": "Uczący się",
@@ -715,3 +703,23 @@ function languageName(id){return t(id)}
 for(const [locale,values] of Object.entries({"de": ["🗣️ Dialoge", "Unterhaltungen mit Antwortauswahl", "Welche Unterhaltung möchtest du üben?", "Die Dialoge konnten nicht geladen werden.", "Dialoge", "Gesprächspartner", "Du", "Schritt {step} von {total}", "Antwortsprache", "Wähle die passende Antwort."], "en": ["🗣️ Dialogues", "Conversations with a choice of replies", "Which conversation would you like to practise?", "The dialogues could not be loaded.", "Dialogues", "Conversation partner", "You", "Step {step} of {total}", "Reply language", "Choose the appropriate reply."], "fr": ["🗣️ Dialogues", "Conversations avec choix de réponses", "Quelle conversation souhaitez-vous pratiquer ?", "Impossible de charger les dialogues.", "Dialogues", "Interlocuteur", "Vous", "Étape {step} sur {total}", "Langue des réponses", "Choisissez la réponse adaptée."], "es": ["🗣️ Diálogos", "Conversaciones con respuestas a elegir", "¿Qué conversación quieres practicar?", "No se pudieron cargar los diálogos.", "Diálogos", "Interlocutor", "Tú", "Paso {step} de {total}", "Idioma de las respuestas", "Elige la respuesta adecuada."], "it": ["🗣️ Dialoghi", "Conversazioni con risposte a scelta", "Quale conversazione vuoi praticare?", "Impossibile caricare i dialoghi.", "Dialoghi", "Interlocutore", "Tu", "Passaggio {step} di {total}", "Lingua delle risposte", "Scegli la risposta adatta."], "pl": ["🗣️ Dialogi", "Rozmowy z wyborem odpowiedzi", "Jaką rozmowę chcesz przećwiczyć?", "Nie udało się wczytać dialogów.", "Dialogi", "Rozmówca", "Ty", "Krok {step} z {total}", "Język odpowiedzi", "Wybierz odpowiednią odpowiedź."]}))Object.assign(window.TRAINER_I18N.texts[locale],Object.fromEntries(["dialogues", "dialoguesDesc", "setupDialogues", "dialogueError", "progressDialogues", "dialoguePartner", "dialogueYou", "dialogueStep", "replyLanguage", "dialogueInstruction"].map((key,i)=>[key,values[i]])));
 
 for(const [locale,text] of Object.entries({"de": "Du möchtest sagen: {reply}", "en": "You want to say: {reply}", "fr": "Vous voulez dire : {reply}", "es": "Quieres decir: {reply}", "it": "Vuoi dire: {reply}", "pl": "Chcesz powiedzieć: {reply}"}))window.TRAINER_I18N.texts[locale].dialogueIntent=text;
+
+// Compact progress cards keep category and unresolved count separate from totals.
+for (const [locale, values] of Object.entries({
+ de: ['offene Fehler', '{correct} von {total} Antworten richtig · {tasks} Aufgaben/Richtungen bearbeitet'],
+ en: ['unresolved mistakes', '{correct} of {total} answers correct · {tasks} tasks/directions practiced'],
+ fr: ['erreurs à revoir', '{correct} réponses correctes sur {total} · {tasks} exercices/sens pratiqués'],
+ es: ['errores pendientes', '{correct} de {total} respuestas correctas · {tasks} ejercicios/direcciones practicados'],
+ it: ['errori da ripassare', '{correct} risposte corrette su {total} · {tasks} esercizi/direzioni svolti'],
+ pl: ['błędów do powtórzenia', '{correct} z {total} poprawnych odpowiedzi · {tasks} wykonanych zadań/kierunków']
+})) Object.assign(window.TRAINER_I18N.texts[locale], {progressOpenErrors: values[0], progressDetails: values[1]});
+
+// The original trainer uses the same account connection as the test version.
+for (const [locale, text] of Object.entries({
+ de: 'Konten sind noch nicht verbunden. Du kannst als Gast weiter üben.',
+ en: 'Accounts are not connected yet. You can keep practising as a guest.',
+ fr: 'Les comptes ne sont pas encore connectés. Vous pouvez continuer à pratiquer en tant qu’invité.',
+ es: 'Las cuentas aún no están conectadas. Puedes seguir practicando como invitado.',
+ it: 'Gli account non sono ancora collegati. Puoi continuare a esercitarti come ospite.',
+ pl: 'Konta nie są jeszcze połączone. Możesz dalej ćwiczyć jako gość.'
+})) window.TRAINER_I18N.texts[locale].accountsUnconfigured = text;
