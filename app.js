@@ -3,9 +3,11 @@ let navigationVersion=0;
 let feedbackError='',modeError='',lastCorrect=null,startError=false;
 const $=id=>document.getElementById(id), languages=[{id:'de',voice:'de-DE'},...window.LANGUAGES];
 let words=[],queue=[],current=null,score=0,answered=0,locked=false,direction='de',lang='pl',mode='words',mistakes=new Map(),reviewOnly=false;
+const speechFlags={de:'🇩🇪',en:'🇬🇧',pl:'🇵🇱',es:'🇪🇸',it:'🇮🇹',fr:'🇫🇷'};
+function speechButtonLabel(id){return `${speechFlags[id]||'🌐'} ${t('listen',{language:languageName(id)})}`}
 const audioButtons=document.createElement('div');audioButtons.className='row';
-const germanButton=document.createElement('button');germanButton.type='button';germanButton.textContent=t('listen',{language:languageName(uiLanguage)});
-const targetButton=document.createElement('button');targetButton.type='button';targetButton.textContent=t('listen',{language:languageName('pl')});
+const germanButton=document.createElement('button');germanButton.type='button';germanButton.textContent=speechButtonLabel(uiLanguage);
+const targetButton=document.createElement('button');targetButton.type='button';targetButton.textContent=speechButtonLabel('pl');
 audioButtons.append(germanButton,targetButton);$('question').after(audioButtons);
 function speak(text,locale){if(!('speechSynthesis' in window)){ feedbackError='speechError';$('feedback').textContent=t('speechError');return}const utterance=new SpeechSynthesisUtterance(text);utterance.lang=locale;utterance.rate=.85;const voice=speechSynthesis.getVoices().find(v=>v.lang.toLowerCase()===locale.toLowerCase());if(voice)utterance.voice=voice;speechSynthesis.cancel();speechSynthesis.speak(utterance)}
 germanButton.onclick=()=>{if(current?.de)speak(mode==='dialogues'&&locked?current.replyBase:current.de,voiceLocale(uiLanguage))};
@@ -37,11 +39,11 @@ function load(l){return new Promise((resolve,reject)=>{const s=document.createEl
 $('start').onclick=async()=>{startError=false;direction=$('direction').value;const version=navigationVersion;try{const data=mode==='grammar'?grammarPairData():await pairData(mode);if(version!==navigationVersion)return;const selected=$('category-filter').value;words=mode==='words'?data:data.filter(item=>selected==='all'||item.category===selected);if(words.length<4)throw Error('Insufficient exercise data');queue=exerciseQueue(words);score=answered=0;mistakes=new Map();reviewOnly=false;$('review').classList.add('hidden');$('setup').classList.add('hidden');$('game').classList.remove('hidden');show()}catch(e){if(version!==navigationVersion)return;startError=true;$('intro').textContent=t('startError')}};
 
 $('back').onclick=goToMenu;
-function show(){for(const id of ['dialogue-history','dialogue-step','dialogue-instruction'])$(id).hidden=mode!=='dialogues';if(mode==='dialogues'){showDialogue();return}if(mode==='grammar'){showGrammar();return}audioButtons.hidden=false;if('speechSynthesis' in window)speechSynthesis.cancel();if(!queue.length){if(reviewOnly){finishSession();return}queue=exerciseQueue(words)}current=queue.shift();locked=false;$('next').classList.add('hidden');feedbackError='';lastCorrect=null;$('feedback').textContent='';$('category').textContent=categoryName(current.category);$('question').textContent=direction==='de'?current.de:current.target;germanButton.hidden=direction!=='de';targetButton.hidden=direction==='de';targetButton.textContent=t('listen',{language:languageName(lang)});$('stats').textContent=t('stats',{score,answered});const key=direction==='de'?'target':'de';const distractors=shuffle([...new Map(words.filter(w=>w[key]!==current[key]).map(w=>[w[key],w])).values()]).slice(0,3);$('answers').replaceChildren();for(const w of shuffle([current,...distractors])){const b=document.createElement('button');b.textContent=w[key];b.onclick=()=>{if(locked)return;feedbackError='';locked=true;answered++;lastCorrect=w===current;window.TrainerStore?.record({base_language:uiLanguage,language:lang,mode,direction,entry:current,chosen:w[key],correct:w===current});if(w===current){score++;resolveMistake(current);b.classList.add('right');$('feedback').textContent=t('correct')}else{recordMistake(current,w[key]);b.classList.add('wrong');$('feedback').textContent=t('solution',{answer:current[key]});queue.splice(Math.min(3,queue.length),0,current);for(const x of $('answers').children)if(x.textContent===current[key])x.classList.add('right')}$('stats').textContent=t('stats',{score,answered});germanButton.hidden=false;targetButton.hidden=false;$('next').classList.remove('hidden')};$('answers').append(b)}}
+function show(){for(const id of ['dialogue-history','dialogue-step','dialogue-instruction'])$(id).hidden=mode!=='dialogues';if(mode==='dialogues'){showDialogue();return}if(mode==='grammar'){showGrammar();return}audioButtons.hidden=false;if('speechSynthesis' in window)speechSynthesis.cancel();if(!queue.length){if(reviewOnly){finishSession();return}queue=exerciseQueue(words)}current=queue.shift();locked=false;$('next').classList.add('hidden');feedbackError='';lastCorrect=null;$('feedback').textContent='';$('category').textContent=categoryName(current.category);$('question').textContent=direction==='de'?current.de:current.target;germanButton.hidden=direction!=='de';targetButton.hidden=direction==='de';targetButton.textContent=speechButtonLabel(lang);$('stats').textContent=t('stats',{score,answered});const key=direction==='de'?'target':'de';const distractors=shuffle([...new Map(words.filter(w=>w[key]!==current[key]).map(w=>[w[key],w])).values()]).slice(0,3);$('answers').replaceChildren();for(const w of shuffle([current,...distractors])){const b=document.createElement('button');b.textContent=w[key];b.onclick=()=>{if(locked)return;feedbackError='';locked=true;answered++;lastCorrect=w===current;window.TrainerStore?.record({base_language:uiLanguage,language:lang,mode,direction,entry:current,chosen:w[key],correct:w===current});if(w===current){score++;resolveMistake(current);b.classList.add('right');$('feedback').textContent=t('correct')}else{recordMistake(current,w[key]);b.classList.add('wrong');$('feedback').textContent=t('solution',{answer:current[key]});queue.splice(Math.min(3,queue.length),0,current);for(const x of $('answers').children)if(x.textContent===current[key])x.classList.add('right')}$('stats').textContent=t('stats',{score,answered});germanButton.hidden=false;targetButton.hidden=false;$('next').classList.remove('hidden')};$('answers').append(b)}}
 $('next').onclick=show;
 
 function showGrammar(){
- targetButton.textContent=t('listen',{language:languageName(lang)});
+ targetButton.textContent=speechButtonLabel(lang);
  if('speechSynthesis' in window)speechSynthesis.cancel();
  audioButtons.hidden=true;
  if(!queue.length){if(reviewOnly){finishSession();return}queue=exerciseQueue(words)}
@@ -113,7 +115,7 @@ function refreshInterface(){
  updateDirectionLabels();
  $('filter-title').textContent=t(mode==='grammar'?'topic':'situation');
  for(const option of $('category-filter').children)option.textContent=option.value==='all'?t(mode==='grammar'?'allTopics':'allSituations'):categoryName(option.value);
- germanButton.textContent=t('listen',{language:languageName(uiLanguage)});targetButton.textContent=t('listen',{language:languageName(lang)});
+ germanButton.textContent=speechButtonLabel(uiLanguage);targetButton.textContent=speechButtonLabel(lang);
  $('intro').textContent=startError?t('startError'):!$('language-screen').classList.contains('hidden')?t('choose',{base:languageName(uiLanguage)}):!$('setup').classList.contains('hidden')?t(mode==='grammar'?'setupGrammar':mode==='sentences'?'setupSentences':mode==='dialogues'?'setupDialogues':'setupWords'):t('menu',{de:languageName(uiLanguage),language:languageName(lang)});
  $('mode-message').textContent=modeError?t(modeError):'';
  $('stats').textContent=t('stats',{score,answered});
@@ -192,7 +194,7 @@ function showDialogue(){
  $('dialogue-instruction').textContent=t('dialogueInstruction')+' '+t('dialogueIntent',{reply:current.spokenLanguage===uiLanguage?current.replyTarget:current.replyBase});
  $('question').textContent=current.prompt;$('stats').textContent=t('stats',{score,answered});
  audioButtons.hidden=false;germanButton.hidden=false;targetButton.hidden=false;
- germanButton.textContent=t('listen',{language:languageName(uiLanguage)});targetButton.textContent=t('listen',{language:languageName(lang)});
+ germanButton.textContent=speechButtonLabel(uiLanguage);targetButton.textContent=speechButtonLabel(lang);
  $('answers').replaceChildren();
  for(const option of shuffle(current.options)){
   const button=document.createElement('button');button.textContent=option;
