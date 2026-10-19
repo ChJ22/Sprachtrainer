@@ -1,0 +1,32 @@
+{
+  "id": "/Sprachtrainer/",
+  "name": "Sprachtrainer – Sprachen lernen",
+  "short_name": "Sprachtrainer",
+  "description": "Wörter, Sätze, Grammatik und Dialoge in sechs Sprachen üben.",
+  "lang": "de",
+  "start_url": "/Sprachtrainer/",
+  "scope": "/Sprachtrainer/",
+  "display": "standalone",
+  "background_color": "#0b2444",
+  "theme_color": "#103d6c",
+  "icons": [
+    {
+      "src": "icon-192.png?v=3",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-512.png?v=3",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable-512.png?v=3",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

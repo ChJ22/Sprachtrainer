@@ -21,3 +21,8 @@ Die Testumgebung bleibt separat für weitere Änderungen bestehen; beide Seiten 
 
 ## Prüfung
 Automatisierte Simulationen prüfen alle Sprachpaare, Navigation, Dialoge, Fehlerwiederholung, Lernstand, Offline-Wiederholung und Kontotrennung. Nach dem Upload im Originaltrainer anmelden und den vorhandenen Lernstand prüfen. Eine Prüfung mit zwei echten Supabase-Benutzern steht weiterhin aus. Grammatik-Erklärungen sind weiterhin deutsch; einzelne Grammatikübersetzungen fehlen in manchen Sprachpaaren.
+
+## Installation als iPhone-App
+Nach dem Hochladen aller Dateien und des neuen Ordners `icons` die Adresse https://chj22.github.io/Sprachtrainer/ in Safari öffnen, auf **Teilen** tippen und **Zum Home-Bildschirm** wählen. Das Icon mit Buch und Weltkugel wird angezeigt und die App öffnet sich ohne normale Safari-Adressleiste. Bestehende Anmeldedaten können beim ersten Start im Home-Bildschirm erneut erforderlich sein. Eine Internetverbindung ist für die Datenbank-Synchronisation erforderlich.
+
+**Wichtig:** Beim GitHub-Upload die Inhalte des Ordners `Sprachtrainer-main` einschließlich `icons/` ins Repository-Stammverzeichnis hochladen. Der Ordner `icons` muss als Unterordner erhalten bleiben. Es wurde bewusst kein aggressives Offline-Caching eingebaut, damit Updates und gespeicherte Lernstände nicht durch veraltete App-Dateien beeinträchtigt werden.
